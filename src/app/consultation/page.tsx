@@ -11,8 +11,7 @@ function cn(...inputs: (string | undefined | null | boolean)[]) {
 }
 
 const navItems = [
-  { name: "Solutions", href: "/#solutions" },
-  { name: "Results", href: "/#testimonials" },
+  { name: "Home", href: "/" },
 ];
 
 const EXPAND_SCROLL_THRESHOLD = 40;
