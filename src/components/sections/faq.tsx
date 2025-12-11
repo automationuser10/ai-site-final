@@ -24,7 +24,7 @@ const faqs = [
     meta: "Industries",
   },
   {
-    question: "How quickly can the AI system be deployed?",
+    question: "How quickly can AI system be deployed?",
     answer:
       "Once we have your requirements and integrations, your AI automation system can be live within a few days. Our systems are pre-trained and can start working immediately.",
     meta: "Setup",
@@ -342,12 +342,6 @@ function FAQ1() {
             );
           })}
         </ul>
-
-        <div className="text-center mt-12">
-          <a href="/consultation" className="inline-flex items-center justify-center px-8 py-3 bg-[#ff9a00] text-white font-medium rounded-lg hover:bg-[#ff7a3c] transition-colors">
-            Book a Free Consultation
-          </a>
-        </div>
       </section>
     </div>
   );
