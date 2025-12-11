@@ -27,7 +27,7 @@ interface Footer2Props {
 const Footer2 = ({
   logo = {
     url: "#",
-    src: "/Untitled design (5) copy copy.png",
+    src: "https://hifio5z61s.ufs.sh/f/UmL4PiAnirXaJkwbh1jbhemILCVWvs4gOpZcoQnMT1923lu0",
     alt: "ADYA AI",
     title: "ADYA AI"
   },
