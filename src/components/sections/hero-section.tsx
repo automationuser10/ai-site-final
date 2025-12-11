@@ -332,7 +332,7 @@ function AnimatedNavFramer() {
   };
 
   return (
-    <div className="fixed top-2 md:top-3 left-1/2 -translate-x-1/2 z-50">
+    <div className="fixed top-2 md:top-3 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-1rem)] sm:w-auto max-w-[95vw]">
       <motion.nav
         initial={{ y: -80, opacity: 0 }}
         animate={isExpanded ? "expanded" : "collapsed"}
@@ -341,7 +341,7 @@ function AnimatedNavFramer() {
         whileTap={!isExpanded ? { scale: 0.95 } : {}}
         onClick={handleNavClick}
         className={cn(
-          "flex items-center overflow-hidden rounded-full border border-[#ff9a00]/20 bg-white/80 shadow-lg backdrop-blur-sm h-12",
+          "flex items-center overflow-hidden rounded-full border border-[#ff9a00]/20 bg-white/80 shadow-lg backdrop-blur-sm h-12 min-w-[3rem]",
           !isExpanded && "cursor-pointer justify-center"
         )}
       >
@@ -368,7 +368,7 @@ function AnimatedNavFramer() {
               href={item.href}
               variants={itemVariants}
               onClick={(e) => handleLinkClick(e, item.href)}
-              className="text-sm font-medium text-black hover:text-[#ff9a00] transition-colors px-2 py-1"
+              className="text-sm font-medium text-black hover:text-[#ff9a00] transition-colors px-2 py-1 whitespace-nowrap"
             >
               {item.name}
             </motion.a>
