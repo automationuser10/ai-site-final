@@ -61,9 +61,9 @@ const DemoFooter = ({
     <section className="py-32 bg-bg-secondary">
       <div className="container">
         <footer>
-          <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4 lg:gap-16">
-            <div className="col-span-1 mb-8 lg:mb-0">
-              <a href="https://shadcnblocks.com" className="block mb-8">
+          <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-5 lg:gap-16">
+            <div className="col-span-1 mb-8 md:col-span-2 lg:mb-0">
+              <a href="https://shadcnblocks.com">
                 <img
                   src={logo.src}
                   alt={logo.alt}
@@ -71,29 +71,20 @@ const DemoFooter = ({
                   className="h-24 w-auto"
                 />
               </a>
-              <p className="text-xl font-semibold text-black mb-8">{logo.title}</p>
-              
-              <h3
-                className="mb-4 font-bold text-black cursor-pointer hover:text-[#ff9a00] transition-colors"
-                onClick={handleSolutionsClick}
-              >
-                Solutions
-              </h3>
-              <ul className="space-y-4 text-black">
-                {menuItems[0].links.map((link, linkIdx) => (
-                  <li
-                    key={linkIdx}
-                    className="font-medium hover:text-primary"
-                  >
-                    <a href={link.url}>{link.text}</a>
-                  </li>
-                ))}
-              </ul>
+              <p className="text-xl font-semibold text-black mt-2">{logo.title}</p>
             </div>
-            
-            {menuItems.slice(1).map((section, sectionIdx) => (
+            {menuItems.map((section, sectionIdx) => (
               <div key={sectionIdx}>
-                <h3 className="mb-4 font-bold text-black">{section.title}</h3>
+                {section.title === "Solutions" ? (
+                  <h3
+                    className="mb-4 font-bold text-black cursor-pointer hover:text-[#ff9a00] transition-colors"
+                    onClick={handleSolutionsClick}
+                  >
+                    {section.title}
+                  </h3>
+                ) : (
+                  <h3 className="mb-4 font-bold text-black">{section.title}</h3>
+                )}
                 <ul className="space-y-4 text-black">
                   {section.links.map((link, linkIdx) => (
                     <li
