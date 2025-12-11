@@ -97,9 +97,11 @@ const ContactForm = () => {
                     Privacy Policy
                   </Link>.
                 </p>
-                <Button type="submit" size="lg" className="bg-primary-dark hover:bg-primary transition-colors text-base font-medium rounded-lg px-8 h-auto w-full lg:w-auto">
-                    Submit
-                </Button>
+                <Link href="/consultation">
+                  <Button type="submit" size="lg" className="bg-primary-dark hover:bg-primary transition-colors text-base font-medium rounded-lg px-8 h-auto w-full lg:w-auto">
+                      Book a Free Consultation
+                  </Button>
+                </Link>
               </div>
             </form>
           </div>

@@ -14,7 +14,7 @@ const plans = [
     price: '$97',
     description: 'Perfect for\nSmall businesses',
     ctaText: 'Choose Basic',
-    ctaLink: '#',
+    ctaLink: '/consultation',
     features: [
       'AI Automation System',
       'Unlimited Real-Time Booking',
@@ -36,7 +36,7 @@ const plans = [
     price: '$497',
     description: 'Perfect for\nGrowing teams',
     ctaText: 'Choose Growth',
-    ctaLink: '#',
+    ctaLink: '/consultation',
     features: [
       'Everything in Basic',
       'Up to 10,000 contacts',
@@ -56,7 +56,7 @@ const plans = [
     price: 'Custom Pricing',
     description: 'Perfect for\nLarge businesses',
     ctaText: 'Contact Us',
-    ctaLink: '#',
+    ctaLink: '/consultation',
     features: [
       'Everything in Growth',
       'Up to 50,000 contacts',

@@ -6,17 +6,17 @@ const steps = [
   {
     number: '01',
     title: 'Discovery',
-    description: 'We dive into your workflows, figure out what’s slowing you down, and map the exact systems that’ll free your time and tighten your operations',
+    description: 'We dive into your workflows, figure out what's slowing you down, and map the exact systems that'll free your time and tighten your operations',
   },
   {
     number: '02',
     title: 'Development',
-    description: 'We design, build, test, and maintain your systems so you stop babysitting tasks that should’ve been automated years ago. You only review and we tweak as needed.',
+    description: 'We design, build, test, and maintain your systems so you stop babysitting tasks that should've been automated years ago. You only review and we tweak as needed.',
   },
   {
     number: '03',
     title: 'Go Live & Scale',
-    description: 'Systems go live. We monitor what’s running smoothly, where bottlenecks still hide, and expand the systems that are saving you the most time and money',
+    description: 'Systems go live. We monitor what's running smoothly, where bottlenecks still hide, and expand the systems that are saving you the most time and money',
   },
 ];
 
@@ -53,6 +53,12 @@ const GettingStartedSection = () => {
               </div>
             </div>
           ))}
+        </div>
+
+        <div className="text-center mt-12">
+          <a href="/consultation" className="inline-flex items-center justify-center px-8 py-3 bg-[#ff9a00] text-white font-medium rounded-lg hover:bg-[#ff7a3c] transition-colors">
+            Book a Free Consultation
+          </a>
         </div>
       </div>
     </section>

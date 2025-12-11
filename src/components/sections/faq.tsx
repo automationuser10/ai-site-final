@@ -342,6 +342,12 @@ function FAQ1() {
             );
           })}
         </ul>
+
+        <div className="text-center mt-12">
+          <a href="/consultation" className="inline-flex items-center justify-center px-8 py-3 bg-[#ff9a00] text-white font-medium rounded-lg hover:bg-[#ff7a3c] transition-colors">
+            Book a Free Consultation
+          </a>
+        </div>
       </section>
     </div>
   );

@@ -16,7 +16,7 @@ const plans = [
     price: '$97',
     description: 'Perfect for\nSmall businesses',
     ctaText: 'Choose Basic',
-    ctaLink: '#',
+    ctaLink: '/consultation',
     features: [
       'AI Automation System',
       'Unlimited Real-Time Booking',
@@ -34,11 +34,11 @@ const plans = [
   },
   {
     name: 'Growth',
-    icon: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/ee5a232e-7f0a-4118-9e63-39eb9e61efa5-nayaai-io/assets/images/jnDiSIShI9TKKdYxDfA0bH9Ys-28.png?',
+    icon: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/ee5a232e-7f0a-4118-9e63-39eb9e61efa5-nayaai-io/assets/images/jnDiSIShI9TKKdYxDfA0bH9Eys-28.png?',
     price: '$497',
     description: 'Perfect for\nGrowing teams',
     ctaText: 'Choose Growth',
-    ctaLink: '#',
+    ctaLink: '/consultation',
     features: [
       'Everything in Basic',
       'Up to 10,000 contacts',
@@ -58,7 +58,7 @@ const plans = [
     price: 'Custom Pricing',
     description: 'Perfect for\nLarge businesses',
     ctaText: 'Contact Us',
-    ctaLink: '#',
+    ctaLink: '/consultation',
     features: [
       'Everything in Growth',
       'Up to 50,000 contacts',

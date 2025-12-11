@@ -40,7 +40,9 @@ export function DemoHeader() {
               {link.label}
             </Link>
           ))}
-          <Button>Book a Free Consultation</Button>
+          <Link href="/consultation">
+            <Button>Book a Free Consultation</Button>
+          </Link>
         </div>
         <Sheet open={open} onOpenChange={setOpen}>
           <Button size="icon" variant="outline" className="lg:hidden">
@@ -70,7 +72,9 @@ export function DemoHeader() {
               ))}
             </div>
             <SheetFooter>
-              <Button>Book a Free Consultation</Button>
+              <Link href="/consultation">
+                <Button>Book a Free Consultation</Button>
+              </Link>
             </SheetFooter>
           </SheetContent>
         </Sheet>
