@@ -5,7 +5,6 @@ import { Circle, Navigation, Menu } from "lucide-react";
 import * as React from "react";
 import { RainbowButton } from "@/components/ui/rainbow-button";
 import StatsSection from "@/components/ui/stats";
-import { HeroVideoDialog } from "@/components/ui/hero-video-dialog";
 
 function cn(...inputs: (string | undefined | null | boolean)[]) {
     return inputs.filter(Boolean).join(' ');
@@ -200,20 +199,6 @@ function HeroGeometric({
                         <RainbowButton>
                             Book a Free Consultation
                         </RainbowButton>
-                    </motion.div>
-
-                    <motion.div
-                        custom={4}
-                        variants={fadeUpVariants}
-                        initial="hidden"
-                        animate="visible"
-                        className="mt-12 w-full max-w-3xl"
-                    >
-                        <HeroVideoDialog
-                            videoSrc="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                            thumbnailSrc="https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=1920"
-                            thumbnailAlt="Video Sales Letter"
-                        />
                     </motion.div>
                 </div>
             </div>
