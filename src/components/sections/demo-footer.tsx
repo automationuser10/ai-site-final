@@ -62,7 +62,7 @@ const DemoFooter = ({
       <div className="container">
         <footer>
           <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-5 lg:gap-16">
-            <div className="col-span-1 mb-8 md:col-span-2 lg:mb-0">
+            <div className="col-span-1 mb-8 md:col-span-2 lg:mb-0 lg:col-start-1">
               <div className="flex items-center gap-0.5 justify-start">
                 <a href="https://shadcnblocks.com">
                   <img
@@ -76,7 +76,7 @@ const DemoFooter = ({
               </div>
             </div>
             {menuItems.map((section, sectionIdx) => (
-              <div key={sectionIdx}>
+              <div key={sectionIdx} className="lg:col-start-2">
                 {section.title === "Solutions" ? (
                   <h3
                     className="mb-4 font-bold text-black cursor-pointer hover:text-[#ff9a00] transition-colors"
