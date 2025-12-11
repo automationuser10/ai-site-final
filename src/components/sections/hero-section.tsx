@@ -352,7 +352,7 @@ function AnimatedNavFramer() {
           className="flex-shrink-0 flex items-center font-semibold pl-3 sm:pl-3 pr-2 sm:pr-1"
         >
           <img
-            src="/adya-logo-transparent.png"
+            src="https://hifio5z61s.ufs.sh/f/UmL4PiAnirXaJkwbh1jbhemILCVWvs4gOpZcoQnMT1923lu0"
             alt="ADYA AI Logo"
             className="h-7 sm:h-7 w-auto object-contain"
           />
