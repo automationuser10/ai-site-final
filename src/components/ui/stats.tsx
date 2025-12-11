@@ -18,23 +18,23 @@ export default function StatsSection() {
   return (
     <>
       {/* Mobile: Vertical Cards */}
-      <section className="bg-white py-8 block md:hidden">
+      <section className="bg-white py-4 block md:hidden">
         <div className="mx-auto w-full max-w-md px-4 sm:px-6">
           <Card
             role="list"
             aria-label="Key product stats"
-            className="flex flex-col gap-0 p-4 sm:p-6 divide-y border-orange-200"
+            className="flex flex-col gap-0 p-3 divide-y border-orange-200"
           >
             {STATS.map((s, i) => (
               <div
                 key={i}
                 role="listitem"
-                className="flex flex-col items-center justify-center px-4 py-6 text-center"
+                className="flex flex-col items-center justify-center px-3 py-4 text-center"
               >
-                <div className="text-black font-semibold tracking-tight whitespace-nowrap text-[clamp(2rem,6vw,3rem)] leading-none">
+                <div className="text-black font-semibold tracking-tight whitespace-nowrap text-[2.5rem] leading-none">
                   {s.value}
                 </div>
-                <p className="text-black mt-2 text-sm sm:text-base">
+                <p className="text-black mt-1.5 text-sm">
                   {s.label}
                 </p>
               </div>

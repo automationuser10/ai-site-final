@@ -185,7 +185,7 @@ function HeroGeometric({
                         initial="hidden"
                         animate="visible"
                     >
-                        <p className="text-base sm:text-lg md:text-xl text-black mb-8 leading-relaxed font-light tracking-wide max-w-2xl mx-auto px-4">
+                        <p className="text-base sm:text-lg md:text-xl text-black mb-6 md:mb-8 leading-relaxed font-light tracking-wide max-w-2xl mx-auto px-4">
                             We step into your business, find every slow, annoying, repetitive bottlenecks, and turn them into a clean, fast, ruthless automated systems. 
                         </p>
                     </motion.div>
@@ -195,7 +195,7 @@ function HeroGeometric({
                         variants={fadeUpVariants}
                         initial="hidden"
                         animate="visible"
-                        className="mt-8 flex justify-center"
+                        className="mt-6 md:mt-8 flex justify-center"
                     >
                         <a href="/consultation">
                             <RainbowButton>
