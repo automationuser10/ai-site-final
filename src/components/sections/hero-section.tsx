@@ -102,7 +102,7 @@ function HeroGeometric({
     };
 
     return (
-        <div className="relative min-h-[85vh] sm:min-h-[80vh] w-full flex items-center justify-center overflow-hidden bg-white pt-12 md:pt-24">
+        <div className="relative min-h-[85vh] sm:min-h-[80vh] w-full flex items-center justify-center overflow-hidden bg-white pt-4 md:pt-24">
             <div className="absolute inset-0 bg-gradient-to-br from-orange-400/[0.03] via-transparent to-orange-400/[0.03] blur-3xl" />
 
             <div className="absolute inset-0 overflow-hidden">
@@ -161,7 +161,7 @@ function HeroGeometric({
                         initial="hidden"
                         animate="visible"
                     >
-                        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-8 tracking-tight mt-2 md:mt-12">
+                        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 md:mb-8 tracking-tight mt-0 md:mt-12">
                             <span className="text-black">
                                 Put Everything on Autopilot —{" "}
                             </span>
@@ -185,7 +185,7 @@ function HeroGeometric({
                         initial="hidden"
                         animate="visible"
                     >
-                        <p className="text-base sm:text-lg md:text-xl text-black mb-4 md:mb-8 leading-relaxed font-light tracking-wide max-w-2xl mx-auto px-4">
+                        <p className="text-base sm:text-lg md:text-xl text-black mb-3 md:mb-8 leading-relaxed font-light tracking-wide max-w-2xl mx-auto px-4">
                             We step into your business, find every slow, annoying, repetitive bottlenecks, and turn them into a clean, fast, ruthless automated systems. 
                         </p>
                     </motion.div>
@@ -195,7 +195,7 @@ function HeroGeometric({
                         variants={fadeUpVariants}
                         initial="hidden"
                         animate="visible"
-                        className="mt-4 md:mt-8 flex justify-center"
+                        className="mt-3 md:mt-8 flex justify-center"
                     >
                         <a href="/consultation">
                             <RainbowButton>
