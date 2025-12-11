@@ -342,25 +342,25 @@ function AnimatedNavFramer() {
         onClick={handleNavClick}
         className={cn(
           "flex items-center overflow-hidden rounded-full border border-[#ff9a00]/20 bg-white/80 shadow-lg backdrop-blur-sm",
-          "h-14 sm:h-12",
-          "min-w-[220px] sm:min-w-0",
-          !isExpanded && "cursor-pointer justify-center !min-w-[3.5rem] !h-14"
+          "h-16 sm:h-14",
+          "min-w-[240px] sm:min-w-0",
+          !isExpanded && "cursor-pointer justify-center !min-w-[4rem] !h-16"
         )}
       >
         <motion.div
           variants={logoVariants}
-          className="flex-shrink-0 flex items-center font-semibold pl-3 sm:pl-3 pr-2 sm:pr-1"
+          className="flex-shrink-0 flex items-center font-semibold pl-4 sm:pl-4 pr-3 sm:pr-2"
         >
           <img
             src="https://hifio5z61s.ufs.sh/f/UmL4PiAnirXaJkwbh1jbhemILCVWvs4gOpZcoQnMT1923lu0"
             alt="ADYA AI Logo"
-            className="h-7 sm:h-7 w-auto object-contain"
+            className="h-10 sm:h-9 w-auto object-contain"
           />
         </motion.div>
 
         <motion.div
           className={cn(
-            "flex items-center gap-1 sm:gap-1 pr-3 sm:pr-3",
+            "flex items-center gap-1 sm:gap-1 pr-4 sm:pr-3",
             !isExpanded && "pointer-events-none"
           )}
         >
@@ -370,7 +370,7 @@ function AnimatedNavFramer() {
               href={item.href}
               variants={itemVariants}
               onClick={(e) => handleLinkClick(e, item.href)}
-              className="text-sm font-medium text-black hover:text-[#ff9a00] transition-colors px-2 sm:px-2.5 py-1 whitespace-nowrap"
+              className="text-sm font-medium text-black hover:text-[#ff9a00] transition-colors px-3 sm:px-2.5 py-1 whitespace-nowrap"
             >
               {item.name}
             </motion.a>
