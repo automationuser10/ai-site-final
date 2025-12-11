@@ -1,179 +1,90 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
-import { motion, useScroll, useTransform, useSpring } from "framer-motion";
-import { cn } from "@/lib/utils";
+import { Card } from '@/components/ui/card';
+import { MovingBorder } from '@/components/ui/moving-border';
 
-export interface StatProps {
-  label: string;
+type Stat = {
   value: string;
-  suffix?: string;
-  prefix?: string;
-  description?: string;
-  className?: string;
-}
-
-export const Stat = ({
-  label,
-  value,
-  suffix,
-  prefix,
-  description,
-  className,
-}: StatProps) => {
-  const [displayValue, setDisplayValue] = useState("0");
-  const [hasAnimated, setHasAnimated] = useState(false);
-  const statRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && !hasAnimated) {
-            setHasAnimated(true);
-            const endValue = parseInt(value.replace(/[^0-9]/g, ""));
-            let currentValue = 0;
-            const increment = endValue / 50;
-            const timer = setInterval(() => {
-              currentValue += increment;
-              if (currentValue >= endValue) {
-                currentValue = endValue;
-                clearInterval(timer);
-              }
-              setDisplayValue(Math.floor(currentValue).toString());
-            }, 30);
-          }
-        });
-      },
-      { threshold: 0.5 }
-    );
-
-    if (statRef.current) {
-      observer.observe(statRef.current);
-    }
-
-    return () => {
-      if (statRef.current) {
-        observer.unobserve(statRef.current);
-      }
-    };
-  }, [value, hasAnimated]);
-
-  return (
-    <div ref={statRef} className={cn("relative", className)}>
-      <div className="text-4xl sm:text-5xl md:text-6xl font-bold text-black">
-        {prefix}
-        {hasAnimated ? value : displayValue}
-        {suffix}
-      </div>
-      <div className="text-sm sm:text-base text-black mt-2">{label}</div>
-      {description && (
-        <div className="text-xs sm:text-sm text-black/60 mt-1">{description}</div>
-      )}
-    </div>
-  );
+  label: string;
 };
 
-export interface StatsProps {
-  stats: StatProps[];
-  className?: string;
-}
+const STATS: Stat[] = [
+  { value: '30 Days', label: 'Partner Gurantee' },
+  { value: '< 48hr', label: 'System Diagnosis & Proposal' },
+  { value: '+100hrs', label: 'Saved for Businesses & Teams' },
+];
 
-export const Stats = ({ stats, className }: StatsProps) => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
-
+export default function StatsSection() {
   return (
-    <div ref={containerRef} className={cn("relative w-full py-12 sm:py-16 md:py-20", className)}>
-      {/* Moving line animation - visible on all screen sizes */}
-      <svg
-        className="absolute inset-0 w-full h-full pointer-events-none"
-        viewBox="0 0 1000 200"
-        preserveAspectRatio="none"
-      >
-        <motion.path
-          d="M 0,100 Q 250,50 500,100 T 1000,100"
-          stroke="url(#gradient)"
-          strokeWidth="2"
-          fill="none"
-          initial={{ pathLength: 0 }}
-          animate={{ pathLength: 1 }}
-          transition={{ duration: 2, ease: "easeInOut" }}
-        />
-        <motion.path
-          d="M 0,100 Q 250,150 500,100 T 1000,100"
-          stroke="url(#gradient)"
-          strokeWidth="1"
-          fill="none"
-          opacity="0.5"
-          initial={{ pathLength: 0 }}
-          animate={{ pathLength: 1 }}
-          transition={{ duration: 2, ease: "easeInOut", delay: 0.5 }}
-        />
-        <defs>
-          <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#ff9a00" stopOpacity="0.3" />
-            <stop offset="50%" stopColor="#ff7a3c" stopOpacity="0.8" />
-            <stop offset="100%" stopColor="#ff9a00" stopOpacity="0.3" />
-          </linearGradient>
-        </defs>
-      </svg>
-
-      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12">
-          {stats.map((stat, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className="text-center"
-            >
-              <Stat {...stat} />
-            </motion.div>
-          ))}
+    <>
+      {/* Mobile: Vertical Cards */}
+      <section className="bg-white py-4 block md:hidden">
+        <div className="mx-auto w-full max-w-md px-4 sm:px-6">
+          <Card
+            role="list"
+            aria-label="Key product stats"
+            className="flex flex-col gap-0 p-3 divide-y border-orange-200"
+          >
+            {STATS.map((s, i) => (
+              <div
+                key={i}
+                role="listitem"
+                className="flex flex-col items-center justify-center px-3 py-4 text-center"
+              >
+                <div className="text-black font-semibold tracking-tight whitespace-nowrap text-[2.5rem] leading-none">
+                  {s.value}
+                </div>
+                <p className="text-black mt-1.5 text-sm">
+                  {s.label}
+                </p>
+              </div>
+            ))}
+          </Card>
         </div>
-      </div>
-    </div>
+      </section>
+
+      {/* Desktop: Original Horizontal Bar with Moving Border */}
+      <section className="hidden md:block bg-white py-6 md:py-8">
+        <div className="mx-auto w-full max-w-5xl px-4 sm:px-6">
+          <div className="relative p-[1px] overflow-hidden rounded-lg">
+            <div className="absolute inset-0" style={{ borderRadius: 'calc(0.5rem * 0.96)' }}>
+              <MovingBorder duration={6000} rx="5%" ry="5%">
+                <div className="h-40 w-60 opacity-[0.9] bg-[radial-gradient(#ff9a00_30%,transparent_40%)]" />
+              </MovingBorder>
+            </div>
+            <Card
+              role="list"
+              aria-label="Key product stats"
+              className={[
+                "relative grid grid-cols-3",
+                "gap-2 sm:gap-4 md:gap-6",
+                "p-3 sm:p-4 md:p-6",
+                "divide-x",
+              ].join(' ')}
+            >
+              {STATS.map((s, i) => (
+                <div
+                  key={i}
+                  role="listitem"
+                  className="flex flex-col items-center justify-center px-1 sm:px-2 md:px-3 text-center"
+                >
+                  <div
+                    className={[
+                      "text-black font-semibold tracking-tight whitespace-nowrap",
+                      "text-xl sm:text-2xl md:text-[clamp(1.75rem,5vw,2.5rem)] leading-none",
+                    ].join(' ')}
+                  >
+                    {s.value}
+                  </div>
+                  <p className="text-black mt-2 text-xs sm:text-sm md:text-base">
+                    {s.label}
+                  </p>
+                </div>
+              ))}
+            </Card>
+          </div>
+        </div>
+      </section>
+    </>
   );
-};
-
-export const StatsSection = () => {
-  const stats: StatProps[] = [
-    {
-      label: "Businesses Automated",
-      value: "200+",
-      description: "Across various industries",
-    },
-    {
-      label: "Hours Saved Monthly",
-      value: "10,000+",
-      description: "For our clients",
-    },
-    {
-      label: "ROI Achieved",
-      value: "300%",
-      description: "Average return on investment",
-    },
-    {
-      label: "Support Response Time",
-      value: "< 2min",
-      description: "Average response time",
-    },
-  ];
-
-  return <Stats stats={stats} />;
-};
-
-export default StatsSection;
+}
