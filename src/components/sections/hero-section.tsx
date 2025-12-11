@@ -4,7 +4,6 @@ import { motion, Variants } from "framer-motion";
 import { Circle, Navigation, Menu } from "lucide-react";
 import * as React from "react";
 import { RainbowButton } from "@/components/ui/rainbow-button";
-import StatsSection from "@/components/ui/stats";
 import Link from "next/link";
 
 function cn(...inputs: (string | undefined | null | boolean)[]) {
@@ -188,20 +187,6 @@ function HeroGeometric({
                         <p className="text-base sm:text-lg md:text-xl text-black mb-8 sm:mb-10 md:mb-8 leading-relaxed font-light tracking-wide max-w-2xl mx-auto px-4">
                             We step into your business, find every slow, annoying, repetitive bottlenecks, and turn them into a clean, fast, ruthless automated systems. 
                         </p>
-                    </motion.div>
-
-                    <motion.div
-                        custom={3}
-                        variants={fadeUpVariants}
-                        initial="hidden"
-                        animate="visible"
-                        className="mt-12 sm:mt-16 md:mt-8 flex justify-center"
-                    >
-                        <Link href="/consultation">
-                            <RainbowButton>
-                                Book a Free Consultation
-                            </RainbowButton>
-                        </Link>
                     </motion.div>
                 </div>
             </div>
@@ -387,9 +372,6 @@ export default function HeroSection() {
                 <HeroGeometric
                     title1="Put Everything on Autopilot - Save Hours and Eliminate Extra Hires"
                     title2="" />
-                <div className="mt-12 sm:mt-16 md:mt-8">
-                    <StatsSection />
-                </div>
             </div>
         </>
     )
