@@ -20,7 +20,9 @@ const DemoSection = () => {
         </div>
 
         <div className="flex justify-center">
-          <GetStartedButton />
+          <a href="/consultation">
+            <GetStartedButton />
+          </a>
         </div>
       </div>
       <div className="absolute left-0 top-0 h-full w-full translate-y-[-2rem] opacity-70 transition-all duration-500 ease-in-out">
