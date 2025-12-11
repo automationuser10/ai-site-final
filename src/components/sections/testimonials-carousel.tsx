@@ -153,7 +153,7 @@ const TestimonialsCarousel = () => {
 
                     <div className="flex-1">
                       <motion.blockquote
-                        className="text-xl md:text-2xl text-gray-800 leading-relaxed mb-8 font-light italic"
+                        className="text-base md:text-xl lg:text-2xl text-gray-800 leading-relaxed mb-8 font-light italic"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.3, duration: 0.8 }}
@@ -161,7 +161,7 @@ const TestimonialsCarousel = () => {
                         "{testimonials[currentIndex].text}"
                       </motion.blockquote>
 
-                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                      <div className="hidden md:grid grid-cols-1 sm:grid-cols-3 gap-4">
                         {testimonials[currentIndex].results.map((result, i) => (
                           <motion.div
                             key={i}
