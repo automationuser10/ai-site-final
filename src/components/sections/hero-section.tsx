@@ -5,6 +5,7 @@ import { Circle, Navigation, Menu } from "lucide-react";
 import * as React from "react";
 import { RainbowButton } from "@/components/ui/rainbow-button";
 import StatsSection from "@/components/ui/stats";
+import Link from "next/link";
 
 function cn(...inputs: (string | undefined | null | boolean)[]) {
     return inputs.filter(Boolean).join(' ');
@@ -196,9 +197,11 @@ function HeroGeometric({
                         animate="visible"
                         className="mt-8 flex justify-center"
                     >
-                        <RainbowButton>
-                            Book a Free Consultation
-                        </RainbowButton>
+                        <Link href="/consultation">
+                            <RainbowButton>
+                                Book a Free Consultation
+                            </RainbowButton>
+                        </Link>
                     </motion.div>
                 </div>
             </div>
