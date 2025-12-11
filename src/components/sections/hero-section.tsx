@@ -383,7 +383,7 @@ export default function HeroSection() {
     return (
         <>
             <AnimatedNavFramer />
-            <div className="flex flex-col text-center items-center justify-center -space-y-8 sm:space-y-0">
+            <div className="flex flex-col text-center items-center justify-center -space-y-24 sm:space-y-0">
                 <HeroGeometric
                     title1="Put Everything on Autopilot — Save Hours and Eliminate Extra Hires"
                     title2="" />
