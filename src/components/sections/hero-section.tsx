@@ -352,8 +352,8 @@ function AnimatedNavFramer() {
           className="flex-shrink-0 flex items-center font-semibold pl-3 sm:pl-3 pr-2 sm:pr-1"
         >
           <img
-            src="/Untitled design (5) copy copy copy copy copy.png"
-            alt="Company Logo"
+            src="/adya-logo-transparent.png"
+            alt="ADYA AI Logo"
             className="h-7 sm:h-7 w-auto object-contain"
           />
         </motion.div>
