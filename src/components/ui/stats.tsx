@@ -45,8 +45,8 @@ export default function StatsSection() {
                   <Icon className="w-6 h-6 text-[#ff9a00]" />
                 </div>
                 <div className="text-left">
-                  <p className="text-lg md:text-2xl font-bold text-black">{stat.value}</p>
-                  <p className="text-xs md:text-sm text-gray-600">{stat.label}</p>
+                  <p className="text-2xl font-bold text-black">{stat.value}</p>
+                  <p className="text-sm text-gray-600">{stat.label}</p>
                 </div>
               </motion.div>
             );
