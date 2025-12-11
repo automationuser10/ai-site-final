@@ -81,7 +81,7 @@ function ElegantShape({
 
 function HeroGeometric({
     badge = "Design Collective",
-    title1 = "Put Everything on Autopilot — Save Hours and Eliminate Extra Hires",
+    title1 = "Put Everything on Autopilot - Save Hours and Eliminate Extra Hires",
     title2 = "Crafting Exceptional Websites",
 }: {
     badge?: string;
@@ -163,7 +163,7 @@ function HeroGeometric({
                     >
                         <h1 className="text-4xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-3 md:mb-8 tracking-tight mt-0 md:mt-12">
                             <span className="text-black">
-                                Put Everything on Autopilot —{" "}
+                                Put Everything on Autopilot -{" "}
                             </span>
                             <span className="bg-clip-text text-transparent bg-gradient-to-r" style={{ backgroundImage: 'linear-gradient(45deg, #ff7a3c, #ffce81)' }}>
                                 Save Hours and Eliminate Extra Hires
@@ -385,7 +385,7 @@ export default function HeroSection() {
             <AnimatedNavFramer />
             <div className="flex flex-col text-center items-center justify-center">
                 <HeroGeometric
-                    title1="Put Everything on Autopilot — Save Hours and Eliminate Extra Hires"
+                    title1="Put Everything on Autopilot - Save Hours and Eliminate Extra Hires"
                     title2="" />
                 <StatsSection />
             </div>
