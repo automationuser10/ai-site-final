@@ -387,7 +387,9 @@ export default function HeroSection() {
                 <HeroGeometric
                     title1="Put Everything on Autopilot - Save Hours and Eliminate Extra Hires"
                     title2="" />
-                <StatsSection />
+                <div className="mt-12 sm:mt-16 md:mt-8">
+                    <StatsSection />
+                </div>
             </div>
         </>
     )
