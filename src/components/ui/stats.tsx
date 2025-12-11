@@ -23,7 +23,7 @@ export default function StatsSection() {
   return (
     <>
       {/* Mobile Version */}
-      <section className="md:hidden bg-white py-8">
+      <section className="md:hidden bg-white py-4">
         <div className="mx-auto w-full max-w-md px-4 sm:px-6">
           <div className="relative p-[2px] overflow-hidden rounded-2xl">
             <MovingBorder duration={6000} rx="10%" ry="10%">
