@@ -161,7 +161,7 @@ function HeroGeometric({
                         initial="hidden"
                         animate="visible"
                     >
-                        <h1 className="text-4xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-6 sm:mb-8 md:mb-8 tracking-tight mt-0 md:mt-12">
+                        <h1 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 sm:mb-8 md:mb-8 tracking-tight mt-0 md:mt-12">
                             <span className="text-black">
                                 Put Everything on Autopilot -{" "}
                             </span>
