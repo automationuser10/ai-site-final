@@ -27,7 +27,7 @@ interface DemoFooterProps {
 const DemoFooter = ({
   logo = {
     url: "#",
-    src: "https://hifio5z61s.ufs.sh/f/UmL4PiAnirXaJkwbh1jbhemILCVWvs4gOpZcoQnMT1923lu0",
+    src: "/Untitled design (5) copy copy.png",
     alt: "ADYA AI",
     title: "ADYA AI"
   },
