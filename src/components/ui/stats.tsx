@@ -1,44 +1,60 @@
 "use client";
+import { Card } from '@/components/ui/card'
+import { MovingBorder } from '@/components/ui/moving-border'
 
-import { motion } from "framer-motion";
-import NumberFlow from "@number-flow/react";
+type Stat = {
+  value: string
+  label: string
+}
 
-const stats = [
-  { value: 30, label: "Days Partner Guarantee", suffix: "" },
-  { value: 100, label: "Businesses Automated", suffix: "+" },
-  { value: 40, label: "Hours Saved Per Week", suffix: "+" },
-];
+const STATS: Stat[] = [
+  { value: '30 Days', label: 'Partner Gurantee' },
+  { value: '< 48hr', label: 'System Diagnosis & Proposal' },
+  { value: '+100hrs', label: 'Saved for Businesses & Teams' },
+]
 
 export default function StatsSection() {
   return (
-    <section className="w-full bg-white py-12 sm:py-16">
-      <div className="container mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-12 md:gap-16"
-        >
-          {stats.map((stat, index) => (
-            <div
-              key={index}
-              className="flex flex-col items-center text-center w-full sm:w-auto"
-            >
-              <div className="text-4xl sm:text-5xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#ff7a3c] to-[#ffce81] mb-2">
-                <NumberFlow
-                  value={stat.value}
-                  format={{ notation: "compact" }}
-                  transformTiming={{ duration: 1000, easing: "ease-out" }}
-                />
-                {stat.suffix}
+    <section className="bg-white py-6 md:py-8">
+      <div className="mx-auto w-full max-w-5xl px-4 sm:px-6">
+        <div className="relative p-[1px] overflow-hidden rounded-lg">
+          <div className="absolute inset-0" style={{ borderRadius: 'calc(0.5rem * 0.96)' }}>
+            <MovingBorder duration={6000} rx="5%" ry="5%">
+              <div className="h-40 w-60 opacity-[0.9] bg-[radial-gradient(#ff9a00_30%,transparent_40%)]" />
+            </MovingBorder>
+          </div>
+          <Card
+            role="list"
+            aria-label="Key product stats"
+            className={[
+              "relative grid grid-cols-3",
+              "gap-2 sm:gap-4 md:gap-6",
+              "p-3 sm:p-4 md:p-6",
+              "divide-x",
+            ].join(' ')}
+          >
+            {STATS.map((s, i) => (
+              <div
+                key={i}
+                role="listitem"
+                className="flex flex-col items-center justify-center px-1 sm:px-2 md:px-3 text-center"
+              >
+                <div
+                  className={[
+                    "text-black font-semibold tracking-tight whitespace-nowrap",
+                    "text-xl sm:text-2xl md:text-[clamp(1.75rem,5vw,2.5rem)] leading-none",
+                  ].join(' ')}
+                >
+                  {s.value}
+                </div>
+                <p className="text-black mt-2 text-xs sm:text-sm md:text-base">
+                  {s.label}
+                </p>
               </div>
-              <p className="text-sm sm:text-base text-black font-medium max-w-[200px] sm:max-w-none">
-                {stat.label}
-              </p>
-            </div>
-          ))}
-        </motion.div>
+            ))}
+          </Card>
+        </div>
       </div>
     </section>
-  );
+  )
 }
