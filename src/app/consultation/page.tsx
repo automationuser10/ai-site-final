@@ -120,13 +120,12 @@ function AnimatedNavFramer() {
         className={cn(
           "flex items-center overflow-hidden rounded-full border border-[#ff9a00]/20 bg-white/80 shadow-lg backdrop-blur-sm",
           "h-14 sm:h-14",
-          "min-w-[240px] sm:min-w-0",
           !isExpanded && "cursor-pointer justify-center !min-w-[3.5rem] !h-14"
         )}
       >
         <motion.div
           variants={logoVariants}
-          className="flex-shrink-0 flex items-center font-semibold pl-3 sm:pl-3 pr-2 sm:pr-2 py-1"
+          className="flex-shrink-0 flex items-center font-semibold pl-2 sm:pl-3 pr-1 sm:pr-2 py-1"
         >
           <Link href="/">
             <img
@@ -139,7 +138,7 @@ function AnimatedNavFramer() {
 
         <motion.div
           className={cn(
-            "flex items-center gap-1 sm:gap-1 pr-4 sm:pr-4",
+            "flex items-center pr-3 sm:pr-4",
             !isExpanded && "pointer-events-none"
           )}
         >
@@ -148,7 +147,7 @@ function AnimatedNavFramer() {
               <Link
                 href={item.href}
                 onClick={(e) => handleLinkClick(e, item.href)}
-                className="text-sm font-medium text-black hover:text-[#ff9a00] transition-colors px-3 sm:px-3 py-1 whitespace-nowrap"
+                className="text-sm font-medium text-black hover:text-[#ff9a00] transition-colors px-2 sm:px-3 py-1 whitespace-nowrap"
               >
                 {item.name}
               </Link>
