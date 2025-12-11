@@ -248,7 +248,7 @@ const containerVariants: Variants = {
   collapsed: {
     y: 0,
     opacity: 1,
-    width: "3rem",
+    width: "4.5rem",
     transition: {
       type: "spring" as const,
       damping: 20,
@@ -342,25 +342,25 @@ function AnimatedNavFramer() {
         onClick={handleNavClick}
         className={cn(
           "flex items-center overflow-hidden rounded-full border border-[#ff9a00]/20 bg-white/80 shadow-lg backdrop-blur-sm",
-          "h-16 sm:h-14",
-          "min-w-[240px] sm:min-w-0",
-          !isExpanded && "cursor-pointer justify-center !min-w-[4rem] !h-16"
+          "h-20 sm:h-18",
+          "min-w-[280px] sm:min-w-0",
+          !isExpanded && "cursor-pointer justify-center !min-w-[4.5rem] !h-20"
         )}
       >
         <motion.div
           variants={logoVariants}
-          className="flex-shrink-0 flex items-center font-semibold pl-4 sm:pl-4 pr-3 sm:pr-2"
+          className="flex-shrink-0 flex items-center font-semibold pl-5 sm:pl-5 pr-4 sm:pr-3"
         >
           <img
             src="https://hifio5z61s.ufs.sh/f/UmL4PiAnirXaJkwbh1jbhemILCVWvs4gOpZcoQnMT1923lu0"
             alt="ADYA AI Logo"
-            className="h-10 sm:h-9 w-auto object-contain"
+            className="h-14 sm:h-12 w-auto object-contain"
           />
         </motion.div>
 
         <motion.div
           className={cn(
-            "flex items-center gap-1 sm:gap-1 pr-4 sm:pr-3",
+            "flex items-center gap-1 sm:gap-1 pr-5 sm:pr-4",
             !isExpanded && "pointer-events-none"
           )}
         >
@@ -370,7 +370,7 @@ function AnimatedNavFramer() {
               href={item.href}
               variants={itemVariants}
               onClick={(e) => handleLinkClick(e, item.href)}
-              className="text-sm font-medium text-black hover:text-[#ff9a00] transition-colors px-3 sm:px-2.5 py-1 whitespace-nowrap"
+              className="text-sm font-medium text-black hover:text-[#ff9a00] transition-colors px-3 sm:px-3 py-1 whitespace-nowrap"
             >
               {item.name}
             </motion.a>
@@ -383,7 +383,7 @@ function AnimatedNavFramer() {
             animate={isExpanded ? "expanded" : "collapsed"}
             className="text-[#ff9a00]"
           >
-            <Menu className="h-6 w-6" />
+            <Menu className="h-7 w-7" />
           </motion.div>
         </div>
       </motion.nav>
