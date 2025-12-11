@@ -39,14 +39,14 @@ export default function StatsSection() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: 0.9 + index * 0.1 }}
-                className="flex items-center gap-4 justify-center w-full sm:w-auto"
+                className="flex items-center gap-4 justify-center w-full md:w-auto"
               >
-                <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-orange-100 flex items-center justify-center">
-                  <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-[#ff9a00]" />
+                <div className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full bg-orange-100 flex items-center justify-center">
+                  <Icon className="w-5 h-5 md:w-6 md:h-6 text-[#ff9a00]" />
                 </div>
-                <div className="text-left flex-1 sm:flex-none">
-                  <p className="text-xl font-bold text-black sm:text-2xl">{stat.value}</p>
-                  <p className="text-xs text-gray-600 sm:text-sm">{stat.label}</p>
+                <div className="text-left flex-1 md:flex-none">
+                  <p className="text-xl font-bold text-black md:text-2xl">{stat.value}</p>
+                  <p className="text-xs text-gray-600 md:text-sm">{stat.label}</p>
                 </div>
               </motion.div>
             );
