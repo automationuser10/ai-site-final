@@ -1,58 +1,60 @@
 "use client";
+import { Card } from '@/components/ui/card'
+import { MovingBorder } from '@/components/ui/moving-border'
 
-import { motion } from "framer-motion";
-import { Shield, Clock, TrendingUp } from "lucide-react";
+type Stat = {
+  value: string
+  label: string
+}
 
-const stats = [
-  {
-    icon: Shield,
-    value: "30 Days",
-    label: "Partner Guarantee",
-  },
-  {
-    icon: Clock,
-    value: "2-3 Weeks",
-    label: "To Go Live",
-  },
-  {
-    icon: TrendingUp,
-    value: "10X ROI",
-    label: "Average Return",
-  },
-];
+const STATS: Stat[] = [
+  { value: '30 Days', label: 'Partner Gurantee' },
+  { value: '< 48hr', label: 'System Diagnosis & Proposal' },
+  { value: '+100hrs', label: 'Saved for Businesses & Teams' },
+]
 
 export default function StatsSection() {
   return (
-    <section className="w-full bg-white py-8 sm:py-12">
-      <div className="container mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
-          className="flex flex-col md:flex-row md:justify-center md:items-center gap-8 md:gap-12 lg:gap-16"
-        >
-          {stats.map((stat, index) => {
-            const Icon = stat.icon;
-            return (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.9 + index * 0.1 }}
-                className="flex items-center gap-4 justify-center w-full md:w-auto"
+    <section className="bg-white py-6 md:py-8">
+      <div className="mx-auto w-full max-w-5xl px-4 sm:px-6">
+        <div className="relative p-[1px] overflow-hidden rounded-lg">
+          <div className="absolute inset-0" style={{ borderRadius: 'calc(0.5rem * 0.96)' }}>
+            <MovingBorder duration={6000} rx="5%" ry="5%">
+              <div className="h-40 w-60 opacity-[0.9] bg-[radial-gradient(#ff9a00_30%,transparent_40%)]" />
+            </MovingBorder>
+          </div>
+          <Card
+            role="list"
+            aria-label="Key product stats"
+            className={[
+              "relative grid grid-cols-3",
+              "gap-2 sm:gap-4 md:gap-6",
+              "p-3 sm:p-4 md:p-6",
+              "divide-x",
+            ].join(' ')}
+          >
+            {STATS.map((s, i) => (
+              <div
+                key={i}
+                role="listitem"
+                className="flex flex-col items-center justify-center px-1 sm:px-2 md:px-3 text-center"
               >
-                <div className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full bg-orange-100 flex items-center justify-center">
-                  <Icon className="w-5 h-5 md:w-6 md:h-6 text-[#ff9a00]" />
+                <div
+                  className={[
+                    "text-black font-semibold tracking-tight whitespace-nowrap",
+                    "text-xl sm:text-2xl md:text-[clamp(1.75rem,5vw,2.5rem)] leading-none",
+                  ].join(' ')}
+                >
+                  {s.value}
                 </div>
-                <div className="text-left flex-1 md:flex-none">
-                  <p className="text-xl font-bold text-black md:text-2xl">{stat.value}</p>
-                  <p className="text-xs text-gray-600 md:text-sm">{stat.label}</p>
-                </div>
-              </motion.div>
-            );
-          })}
-        </motion.div>
+                <p className="text-black mt-2 text-xs sm:text-sm md:text-base">
+                  {s.label}
+                </p>
+              </div>
+            ))}
+          </Card>
+        </div>
       </div>
     </section>
-  );
+  )
 }
