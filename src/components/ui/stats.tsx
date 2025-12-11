@@ -29,7 +29,7 @@ export default function StatsSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.8 }}
-          className="flex flex-col sm:flex-row sm:justify-center sm:items-center gap-6 sm:gap-12 md:gap-16"
+          className="flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-8 md:gap-16 lg:gap-24"
         >
           {stats.map((stat, index) => {
             const Icon = stat.icon;
@@ -39,7 +39,7 @@ export default function StatsSection() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: 0.9 + index * 0.1 }}
-                className="flex items-center gap-4 justify-center sm:justify-start"
+                className="flex items-center gap-4"
               >
                 <div className="flex-shrink-0 w-12 h-12 rounded-full bg-orange-100 flex items-center justify-center">
                   <Icon className="w-6 h-6 text-[#ff9a00]" />
