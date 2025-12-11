@@ -1,166 +1,60 @@
 "use client";
+import { Card } from '@/components/ui/card'
+import { MovingBorder } from '@/components/ui/moving-border'
 
-import { motion } from "framer-motion";
-import NumberFlow from "@number-flow/react";
-import { useEffect, useState } from "react";
+type Stat = {
+  value: string
+  label: string
+}
+
+const STATS: Stat[] = [
+  { value: '30 Days', label: 'Partner Gurantee' },
+  { value: '< 48hr', label: 'System Diagnosis & Proposal' },
+  { value: '+100hrs', label: 'Saved for Businesses & Teams' },
+]
 
 export default function StatsSection() {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    setIsVisible(true);
-  }, []);
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: [0.25, 0.4, 0.25, 1],
-      },
-    },
-  };
-
   return (
-    <motion.div
-      variants={containerVariants}
-      initial="hidden"
-      animate={isVisible ? "visible" : "hidden"}
-      className="w-full max-w-4xl mx-auto px-4 py-8"
-    >
-      {/* Mobile: Vertical Layout */}
-      <div className="flex flex-col gap-6 md:hidden">
-        {/* 30-Day Partner Guarantee */}
-        <motion.div
-          variants={itemVariants}
-          className="relative overflow-hidden rounded-2xl border border-[#ff9a00]/20 bg-white/80 backdrop-blur-sm p-6 shadow-lg"
-        >
-          <div className="absolute inset-0 bg-gradient-to-br from-orange-400/[0.03] via-transparent to-orange-400/[0.03]" />
-          <div className="relative z-10 text-center">
-            <div className="text-5xl font-bold mb-2 text-[#ff7a3c]">
-              <NumberFlow
-                value={isVisible ? 30 : 0}
-                format={{ notation: "standard" }}
-              />
-            </div>
-            <p className="text-sm font-medium text-black/80">
-              Day Partner Guarantee
-            </p>
+    <section className="bg-white py-6 md:py-8">
+      <div className="mx-auto w-full max-w-5xl px-4 sm:px-6">
+        <div className="relative p-[1px] overflow-hidden rounded-lg">
+          <div className="absolute inset-0" style={{ borderRadius: 'calc(0.5rem * 0.96)' }}>
+            <MovingBorder duration={6000} rx="5%" ry="5%">
+              <div className="h-40 w-60 opacity-[0.9] bg-[radial-gradient(#ff9a00_30%,transparent_40%)]" />
+            </MovingBorder>
           </div>
-        </motion.div>
-
-        {/* Stats Grid */}
-        <motion.div
-          variants={itemVariants}
-          className="grid grid-cols-2 gap-4"
-        >
-          {/* Hours Saved */}
-          <div className="relative overflow-hidden rounded-2xl border border-[#ff9a00]/20 bg-white/80 backdrop-blur-sm p-6 shadow-lg">
-            <div className="absolute inset-0 bg-gradient-to-br from-orange-400/[0.03] via-transparent to-orange-400/[0.03]" />
-            <div className="relative z-10 text-center">
-              <div className="text-4xl font-bold mb-2 text-[#ff7a3c]">
-                <NumberFlow
-                  value={isVisible ? 100 : 0}
-                  format={{ notation: "standard" }}
-                />
-                <span className="text-2xl">+</span>
+          <Card
+            role="list"
+            aria-label="Key product stats"
+            className={[
+              "relative grid grid-cols-3",
+              "gap-2 sm:gap-4 md:gap-6",
+              "p-3 sm:p-4 md:p-6",
+              "divide-x",
+            ].join(' ')}
+          >
+            {STATS.map((s, i) => (
+              <div
+                key={i}
+                role="listitem"
+                className="flex flex-col items-center justify-center px-1 sm:px-2 md:px-3 text-center"
+              >
+                <div
+                  className={[
+                    "text-black font-semibold tracking-tight whitespace-nowrap",
+                    "text-xl sm:text-2xl md:text-[clamp(1.75rem,5vw,2.5rem)] leading-none",
+                  ].join(' ')}
+                >
+                  {s.value}
+                </div>
+                <p className="text-black mt-2 text-xs sm:text-sm md:text-base">
+                  {s.label}
+                </p>
               </div>
-              <p className="text-xs font-medium text-black/80">
-                Hours Saved Monthly
-              </p>
-            </div>
-          </div>
-
-          {/* Businesses Automated */}
-          <div className="relative overflow-hidden rounded-2xl border border-[#ff9a00]/20 bg-white/80 backdrop-blur-sm p-6 shadow-lg">
-            <div className="absolute inset-0 bg-gradient-to-br from-orange-400/[0.03] via-transparent to-orange-400/[0.03]" />
-            <div className="relative z-10 text-center">
-              <div className="text-4xl font-bold mb-2 text-[#ff7a3c]">
-                <NumberFlow
-                  value={isVisible ? 200 : 0}
-                  format={{ notation: "standard" }}
-                />
-                <span className="text-2xl">+</span>
-              </div>
-              <p className="text-xs font-medium text-black/80">
-                Businesses Automated
-              </p>
-            </div>
-          </div>
-        </motion.div>
+            ))}
+          </Card>
+        </div>
       </div>
-
-      {/* Desktop: Original Horizontal Layout */}
-      <motion.div
-        variants={itemVariants}
-        className="hidden md:flex items-center gap-6"
-      >
-        {/* 30-Day Partner Guarantee */}
-        <div className="relative overflow-hidden rounded-2xl border border-[#ff9a00]/20 bg-white/80 backdrop-blur-sm p-6 shadow-lg flex-shrink-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-orange-400/[0.03] via-transparent to-orange-400/[0.03]" />
-          <div className="relative z-10 text-center">
-            <div className="text-5xl font-bold mb-2 text-[#ff7a3c]">
-              <NumberFlow
-                value={isVisible ? 30 : 0}
-                format={{ notation: "standard" }}
-              />
-            </div>
-            <p className="text-sm font-medium text-black/80">
-              Day Partner Guarantee
-            </p>
-          </div>
-        </div>
-
-        {/* Stats Container */}
-        <div className="flex items-center gap-6 flex-1">
-          {/* Hours Saved */}
-          <div className="relative overflow-hidden rounded-2xl border border-[#ff9a00]/20 bg-white/80 backdrop-blur-sm p-6 shadow-lg flex-1">
-            <div className="absolute inset-0 bg-gradient-to-br from-orange-400/[0.03] via-transparent to-orange-400/[0.03]" />
-            <div className="relative z-10 text-center">
-              <div className="text-4xl font-bold mb-2 text-[#ff7a3c]">
-                <NumberFlow
-                  value={isVisible ? 100 : 0}
-                  format={{ notation: "standard" }}
-                />
-                <span className="text-2xl">+</span>
-              </div>
-              <p className="text-xs font-medium text-black/80">
-                Hours Saved Monthly
-              </p>
-            </div>
-          </div>
-
-          {/* Businesses Automated */}
-          <div className="relative overflow-hidden rounded-2xl border border-[#ff9a00]/20 bg-white/80 backdrop-blur-sm p-6 shadow-lg flex-1">
-            <div className="absolute inset-0 bg-gradient-to-br from-orange-400/[0.03] via-transparent to-orange-400/[0.03]" />
-            <div className="relative z-10 text-center">
-              <div className="text-4xl font-bold mb-2 text-[#ff7a3c]">
-                <NumberFlow
-                  value={isVisible ? 200 : 0}
-                  format={{ notation: "standard" }}
-                />
-                <span className="text-2xl">+</span>
-              </div>
-              <p className="text-xs font-medium text-black/80">
-                Businesses Automated
-              </p>
-            </div>
-          </div>
-        </div>
-      </motion.div>
-    </motion.div>
-  );
+    </section>
+  )
 }
