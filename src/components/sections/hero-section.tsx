@@ -102,7 +102,7 @@ function HeroGeometric({
     };
 
     return (
-        <div className="relative min-h-[85vh] sm:min-h-[80vh] w-full flex items-start sm:items-center justify-center overflow-hidden bg-white pt-24 sm:pt-4 md:pt-24 pb-8 sm:pb-0">
+        <div className="relative min-h-[85vh] sm:min-h-[80vh] w-full flex items-start sm:items-center justify-center overflow-hidden bg-white pt-24 sm:pt-4 md:pt-24">
             <div className="absolute inset-0 bg-gradient-to-br from-orange-400/[0.03] via-transparent to-orange-400/[0.03] blur-3xl" />
 
             <div className="absolute inset-0 overflow-hidden">
@@ -383,7 +383,7 @@ export default function HeroSection() {
     return (
         <>
             <AnimatedNavFramer />
-            <div className="flex flex-col text-center items-center justify-center -mt-16 sm:mt-0">
+            <div className="flex flex-col text-center items-center justify-center">
                 <HeroGeometric
                     title1="Put Everything on Autopilot — Save Hours and Eliminate Extra Hires"
                     title2="" />
