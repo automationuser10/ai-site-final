@@ -197,11 +197,11 @@ function HeroGeometric({
                         animate="visible"
                         className="mt-8 flex justify-center"
                     >
-                        <Link href="/consultation">
+                        <a href="/consultation">
                             <RainbowButton>
                                 Book a Free Consultation
                             </RainbowButton>
-                        </Link>
+                        </a>
                     </motion.div>
                 </div>
             </div>
