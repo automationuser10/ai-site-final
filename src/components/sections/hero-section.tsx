@@ -102,7 +102,7 @@ function HeroGeometric({
     };
 
     return (
-        <div className="relative min-h-[85vh] sm:min-h-[80vh] w-full flex items-center justify-center overflow-hidden bg-white pt-4 md:pt-24">
+        <div className="relative min-h-[85vh] sm:min-h-[80vh] w-full flex items-start sm:items-center justify-center overflow-hidden bg-white pt-20 sm:pt-4 md:pt-24">
             <div className="absolute inset-0 bg-gradient-to-br from-orange-400/[0.03] via-transparent to-orange-400/[0.03] blur-3xl" />
 
             <div className="absolute inset-0 overflow-hidden">
@@ -161,7 +161,7 @@ function HeroGeometric({
                         initial="hidden"
                         animate="visible"
                     >
-                        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 md:mb-8 tracking-tight mt-0 md:mt-12">
+                        <h1 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 md:mb-8 tracking-tight mt-0 md:mt-12">
                             <span className="text-black">
                                 Put Everything on Autopilot —{" "}
                             </span>
