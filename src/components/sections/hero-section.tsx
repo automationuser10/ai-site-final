@@ -342,13 +342,13 @@ function AnimatedNavFramer() {
         onClick={handleNavClick}
         className={cn(
           "flex items-center overflow-hidden rounded-full border border-[#ff9a00]/20 bg-white/80 shadow-lg backdrop-blur-sm h-12",
-          "min-w-[240px] sm:min-w-0",
+          "min-w-[220px] sm:min-w-0",
           !isExpanded && "cursor-pointer justify-center !min-w-[3rem]"
         )}
       >
         <motion.div
           variants={logoVariants}
-          className="flex-shrink-0 flex items-center font-semibold pl-2.5 sm:pl-3 pr-0.5 sm:pr-1"
+          className="flex-shrink-0 flex items-center font-semibold pl-2 sm:pl-3 pr-0 sm:pr-1"
         >
           <img
             src="/Untitled design (5) copy copy copy copy copy.png"
@@ -359,7 +359,7 @@ function AnimatedNavFramer() {
 
         <motion.div
           className={cn(
-            "flex items-center gap-0.5 sm:gap-1 pr-2.5 sm:pr-3",
+            "flex items-center gap-0 sm:gap-1 pr-2 sm:pr-3",
             !isExpanded && "pointer-events-none"
           )}
         >
@@ -369,7 +369,7 @@ function AnimatedNavFramer() {
               href={item.href}
               variants={itemVariants}
               onClick={(e) => handleLinkClick(e, item.href)}
-              className="text-sm font-medium text-black hover:text-[#ff9a00] transition-colors px-2 sm:px-2.5 py-1 whitespace-nowrap"
+              className="text-sm font-medium text-black hover:text-[#ff9a00] transition-colors px-1.5 sm:px-2.5 py-1 whitespace-nowrap"
             >
               {item.name}
             </motion.a>
