@@ -235,6 +235,7 @@ const containerVariants: Variants = {
     y: 0,
     opacity: 1,
     width: "auto",
+    minWidth: "280px",
     transition: {
       y: { type: "spring" as const, damping: 18, stiffness: 250 },
       opacity: { duration: 0.3 },
@@ -249,6 +250,7 @@ const containerVariants: Variants = {
     y: 0,
     opacity: 1,
     width: "3rem",
+    minWidth: "3rem",
     transition: {
       type: "spring" as const,
       damping: 20,
@@ -341,24 +343,24 @@ function AnimatedNavFramer() {
         whileTap={!isExpanded ? { scale: 0.95 } : {}}
         onClick={handleNavClick}
         className={cn(
-          "flex items-center overflow-hidden rounded-full border border-[#ff9a00]/20 bg-white/80 shadow-lg backdrop-blur-sm h-12 min-w-[3rem]",
+          "flex items-center overflow-hidden rounded-full border border-[#ff9a00]/20 bg-white/80 shadow-lg backdrop-blur-sm h-12",
           !isExpanded && "cursor-pointer justify-center"
         )}
       >
         <motion.div
           variants={logoVariants}
-          className="flex-shrink-0 flex items-center font-semibold pl-4 pr-2"
+          className="flex-shrink-0 flex items-center font-semibold pl-3 pr-1"
         >
           <img
             src="/Untitled design (5) copy copy copy copy copy.png"
             alt="Company Logo"
-            className="h-8 w-auto object-contain"
+            className="h-7 w-auto object-contain"
           />
         </motion.div>
 
         <motion.div
           className={cn(
-            "flex items-center gap-2 sm:gap-4 pr-4",
+            "flex items-center gap-1 pr-3",
             !isExpanded && "pointer-events-none"
           )}
         >
@@ -368,7 +370,7 @@ function AnimatedNavFramer() {
               href={item.href}
               variants={itemVariants}
               onClick={(e) => handleLinkClick(e, item.href)}
-              className="text-sm font-medium text-black hover:text-[#ff9a00] transition-colors px-2 py-1 whitespace-nowrap"
+              className="text-sm font-medium text-black hover:text-[#ff9a00] transition-colors px-2.5 py-1 whitespace-nowrap"
             >
               {item.name}
             </motion.a>
