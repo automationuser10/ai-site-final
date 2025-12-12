@@ -62,7 +62,7 @@ const DemoFooter = ({
       <div className="container">
         <footer>
           <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-5 lg:gap-16">
-            <div className="col-span-1 mb-8 md:col-span-2 lg:mb-0 lg:col-start-1">
+            <div className="col-span-1 mb-8 md:col-span-1 lg:mb-0 lg:col-start-1">
               <div className="flex items-center gap-0.5 justify-start">
                 <a href="https://shadcnblocks.com">
                   <img
