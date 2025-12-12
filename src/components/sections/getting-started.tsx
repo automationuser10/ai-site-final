@@ -16,7 +16,7 @@ const steps = [
   {
     number: '03',
     title: 'Go Live & Scale',
-    description: 'Systems go live. We monitor what\'s running smoothly, where bottlenecks still hide, and expand the systems that are saving you the most time and money',
+    description: 'Systems go live. We monitor what\'s running smoothly, where bottlenecks still hide, and expand systems that are saving you most time and money',
   },
 ];
 
@@ -53,12 +53,6 @@ const GettingStartedSection = () => {
               </div>
             </div>
           ))}
-        </div>
-
-        <div className="text-center mt-12">
-          <a href="/consultation" className="inline-flex items-center justify-center px-8 py-3 bg-[#ff9a00] text-white font-medium rounded-lg hover:bg-[#ff7a3c] transition-colors">
-            Book a Free Consultation
-          </a>
         </div>
       </div>
     </section>
