@@ -1,6 +1,6 @@
 "use client";
 
-import DemoFooter from "@/components/sections/demo-footer";
+import { Footer } from "@/components/ui/footer-section";
 import { Menu } from "lucide-react";
 import { motion, Variants } from "framer-motion";
 import * as React from "react";
@@ -280,7 +280,7 @@ export default function ConsultationPage() {
             {loadError && (
               <div className="flex items-center justify-center" style={{ height: '800px' }}>
                 <div className="text-center">
-                  <p className="text-red-600 mb-4">Failed to load calendar. Please refresh the page.</p>
+                  <p className="text-red-600 mb-4">Failed to load calendar. Please refresh page.</p>
                   <button 
                     onClick={() => window.location.reload()} 
                     className="px-6 py-2 bg-[#ff9a00] text-white rounded-lg hover:bg-[#ff7a3c] transition-colors"
@@ -303,7 +303,7 @@ export default function ConsultationPage() {
           </div>
         </section>
       </main>
-      <DemoFooter />
+      <Footer />
     </>
   );
 }

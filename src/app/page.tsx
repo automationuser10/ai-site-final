@@ -8,7 +8,7 @@ import TestimonialsCarousel from "@/components/sections/testimonials-carousel";
 import GettingStartedSection from "@/components/sections/getting-started";
 import FaqSection from "@/components/sections/faq";
 import { CTA } from "@/components/ui/call-to-action";
-import Footer from "@/components/sections/footer";
+import { Footer } from "@/components/ui/footer-section";
 
 export default function Home() {
   return (

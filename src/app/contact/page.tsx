@@ -1,7 +1,7 @@
 "use client";
 
 import { DemoHeader } from "@/components/layout/DemoHeader";
-import DemoFooter from "@/components/sections/demo-footer";
+import { Footer } from "@/components/ui/footer-section";
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -112,7 +112,7 @@ export default function ContactPage() {
           </div>
         </section>
       </main>
-      <DemoFooter />
+      <Footer />
     </>
   );
 }

@@ -1,7 +1,6 @@
 "use client";
 
-import { DemoHeader } from "@/components/layout/DemoHeader";
-import DemoFooter from "@/components/sections/demo-footer";
+import { Footer } from "@/components/ui/footer-section";
 import { useState } from 'react';
 import Image from 'next/image';
 import { Check } from 'lucide-react';
@@ -79,7 +78,6 @@ export default function PricingPage() {
 
   return (
     <>
-      <DemoHeader />
       <main className="min-h-screen bg-white pt-20 pb-16">
         <section className="bg-bg-primary py-24 sm:py-32">
           <div className="container">
@@ -181,7 +179,7 @@ export default function PricingPage() {
           </div>
         </section>
       </main>
-      <DemoFooter />
+      <Footer />
     </>
   );
 }
