@@ -23,7 +23,7 @@ const footerLinks: FooterSection[] = [
 			{ title: 'Features', href: '#features' },
 			{ title: 'Pricing', href: '#pricing' },
 			{ title: 'Testimonials', href: '#testimonials' },
-			{ title: 'Integration', href: '/' },
+			{ title: 'FAQs', href: '/faq' },
 		],
 	},
 	{
@@ -49,7 +49,7 @@ export function Footer() {
 							src="https://hifio5z61s.ufs.sh/f/UmL4PiAnirXaJkwbh1jbhemILCVWvs4gOpZcoQnMT1923lu0"
 							alt="ADYA AI"
 							title="ADYA AI"
-							className="h-12 w-auto"
+							className="h-20 w-auto"
 						/>
 						<p className="text-xl font-semibold text-black">ADYA AI</p>
 					</div>
@@ -62,7 +62,7 @@ export function Footer() {
 					{footerLinks.map((section, index) => (
 						<AnimatedContainer key={section.label} delay={0.1 + index * 0.1}>
 							<div className="mb-10 md:mb-0">
-								<h3 className="text-xs">{section.label}</h3>
+								<h3 className="text-lg font-bold">{section.label}</h3>
 								<ul className="text-muted-foreground mt-4 space-y-2 text-sm">
 									{section.links.map((link) => (
 										<li key={link.title}>
