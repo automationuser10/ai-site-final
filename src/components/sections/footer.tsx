@@ -37,6 +37,7 @@ const Footer2 = ({
       links: [
         { text: "Features", url: "/#features" },
         { text: "Results", url: "/#testimonials" },
+        { text: "FAQs", url: "/#faq" },
       ],
     },
     {
@@ -57,6 +58,16 @@ const Footer2 = ({
     const element = document.querySelector('#solutions');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
+  const handleLinkClick = (url: string) => {
+    if (url.startsWith('/#')) {
+      const hash = url.substring(2);
+      const element = document.querySelector(`#${hash}`);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     }
   };
 
@@ -96,7 +107,16 @@ const Footer2 = ({
                       key={linkIdx}
                       className="font-medium hover:text-primary"
                     >
-                      <a href={link.url}>{link.text}</a>
+                      {link.url.startsWith('/#') ? (
+                        <button
+                          onClick={() => handleLinkClick(link.url)}
+                          className="text-left hover:text-primary transition-colors"
+                        >
+                          {link.text}
+                        </button>
+                      ) : (
+                        <a href={link.url}>{link.text}</a>
+                      )}
                     </li>
                   ))}
                 </ul>

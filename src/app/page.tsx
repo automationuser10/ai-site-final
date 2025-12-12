@@ -20,7 +20,9 @@ export default function Home() {
       <BentoCardsSection />
       <TestimonialsCarousel />
       <GettingStartedSection />
-      <FaqSection />
+      <div id="faq">
+        <FaqSection />
+      </div>
       <CTA />
       <Footer />
     </main>

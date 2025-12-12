@@ -37,6 +37,7 @@ const DemoFooter = ({
       links: [
         { text: "Home", url: "/" },
         { text: "Features", url: "/#features" },
+        { text: "FAQs", url: "/#faq" },
       ],
     },
     {
@@ -55,6 +56,12 @@ const DemoFooter = ({
 }: DemoFooterProps) => {
   const handleSolutionsClick = () => {
     window.location.href = '/#solutions';
+  };
+
+  const handleLinkClick = (url: string) => {
+    if (url.startsWith('/#')) {
+      window.location.href = url;
+    }
   };
 
   return (
@@ -93,7 +100,16 @@ const DemoFooter = ({
                       key={linkIdx}
                       className="font-medium hover:text-primary"
                     >
-                      <a href={link.url}>{link.text}</a>
+                      {link.url.startsWith('/#') ? (
+                        <button
+                          onClick={() => handleLinkClick(link.url)}
+                          className="text-left hover:text-primary transition-colors"
+                        >
+                          {link.text}
+                        </button>
+                      ) : (
+                        <a href={link.url}>{link.text}</a>
+                      )}
                     </li>
                   ))}
                 </ul>
