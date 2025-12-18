@@ -15,8 +15,16 @@ export function DemoHeader() {
       href: '/',
     },
     {
+      label: 'Solutions',
+      href: '/#solutions',
+    },
+    {
       label: 'Results',
       href: '/#testimonials',
+    },
+    {
+      label: 'FAQs',
+      href: '/#faq',
     },
   ];
 
