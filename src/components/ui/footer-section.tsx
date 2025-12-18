@@ -1,142 +1,109 @@
-"use client";
+'use client';
 
-interface MenuItem {
-  title: string;
-  links: {
-    text: string;
-    url: string;
-  }[];
+import React from 'react';
+import type { ComponentProps, ReactNode } from 'react';
+import { motion, useReducedMotion } from 'motion/react';
+import { FrameIcon, InstagramIcon, LinkedinIcon } from 'lucide-react';
+
+interface FooterLink {
+	title: string;
+	href: string;
+	icon?: React.ComponentType<{ className?: string }>;
 }
 
-interface FooterProps {
-  logo?: {
-    url: string;
-    src: string;
-    alt: string;
-    title: string;
-  };
-  tagline?: string;
-  menuItems?: MenuItem[];
-  copyright?: string;
-  bottomLinks?: {
-    text: string;
-    url: string;
-  }[];
+interface FooterSection {
+	label: string;
+	links: FooterLink[];
 }
 
-export const Footer = ({
-  logo = {
-    url: "#",
-    src: "https://hifio5z61s.ufs.sh/f/UmL4PiAnirXaJkwbh1jbhemILCVWvs4gOpZcoQnMT1923lu0",
-    alt: "ADYA AI",
-    title: "ADYA AI"
-  },
-  menuItems = [
-    {
-      title: "Solutions",
-      links: [
-        { text: "Features", url: "/#features" },
-        { text: "Results", url: "/#testimonials" },
-        { text: "FAQs", url: "/#faq" },
-      ],
-    },
-    {
-      title: "Social",
-      links: [
-        { text: "Instagram", url: "#" },
-        { text: "LinkedIn", url: "#" },
-      ],
-    },
-  ],
-  copyright = "© 2025 ADYA AI. All rights reserved.",
-  bottomLinks = [
-    { text: "Terms and Conditions", url: "#" },
-    { text: "Privacy Policy", url: "#" },
-  ],
-}: FooterProps) => {
-  const handleSolutionsClick = () => {
-    const element = document.querySelector('#solutions');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  };
+const footerLinks: FooterSection[] = [
+	{
+		label: 'Services',
+		links: [
+			{ title: 'Features', href: '/#features' },
+			{ title: 'Testimonials', href: '/#testimonials' },
+			{ title: 'FAQs', href: '/#faq' },
+		],
+	},
+	{
+		label: 'Social Links',
+		links: [
+			{ title: 'Instagram', href: '#', icon: InstagramIcon },
+			{ title: 'LinkedIn', href: '#', icon: LinkedinIcon },
+		],
+	},
+];
 
-  const handleLinkClick = (url: string) => {
-    if (url.startsWith('/#')) {
-      const hash = url.substring(2);
-      const element = document.querySelector(`#${hash}`);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    } else if (url.startsWith('/')) {
-      window.location.href = url;
-    }
-  };
+export function Footer() {
+	return (
+		<footer className="md:rounded-t-6xl relative w-full max-w-6xl mx-auto flex flex-col items-center justify-center rounded-t-4xl border-t bg-[radial-gradient(35%_128px_at_50%_0%,theme(backgroundColor.white/8%),transparent)] px-6 py-12 lg:py-16">
+			<div className="bg-foreground/20 absolute top-0 right-1/2 left-1/2 h-px w-1/3 -translate-x-1/2 -translate-y-1/2 rounded-full blur" />
 
-  return (
-    <section className="py-32 bg-bg-secondary">
-      <div className="container">
-        <footer>
-          <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-5 lg:gap-16">
-            <div className="col-span-1 mb-8 md:col-span-1 lg:mb-0 lg:col-start-1">
-              <div className="flex items-center gap-0.5 justify-start">
-                <a href="/">
-                  <img
-                    src={logo.src}
-                    alt={logo.alt}
-                    title={logo.title}
-                    className="h-24 w-auto"
-                  />
-                </a>
-                <p className="text-xl font-semibold text-black">{logo.title}</p>
-              </div>
-            </div>
-            {menuItems.map((section, sectionIdx) => (
-              <div key={sectionIdx} className="lg:col-start-2">
-                {section.title === "Solutions" ? (
-                  <h3
-                    className="mb-4 font-bold text-black cursor-pointer hover:text-[#ff9a00] transition-colors"
-                    onClick={handleSolutionsClick}
-                  >
-                    {section.title}
-                  </h3>
-                ) : (
-                  <h3 className="mb-4 font-bold text-black">{section.title}</h3>
-                )}
-                <ul className="space-y-4 text-black">
-                  {section.links.map((link, linkIdx) => (
-                    <li
-                      key={linkIdx}
-                      className="font-medium hover:text-primary"
-                    >
-                      {link.url.startsWith('/#') || link.url.startsWith('/') ? (
-                        <button
-                          onClick={() => handleLinkClick(link.url)}
-                          className="text-left hover:text-primary transition-colors"
-                        >
-                          {link.text}
-                        </button>
-                      ) : (
-                        <a href={link.url}>{link.text}</a>
-                      )}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-          <div className="mt-24 flex flex-col justify-between gap-4 border-t pt-8 text-sm font-medium text-black md:flex-row md:items-center">
-            <p>{copyright}</p>
-            <ul className="flex gap-4">
-              {bottomLinks.map((link, linkIdx) => (
-                <li key={linkIdx} className="underline hover:text-primary">
-                  <a href={link.url}>{link.text}</a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </footer>
-      </div>
-    </section>
-  );
+			<div className="grid w-full gap-8 xl:grid-cols-3 xl:gap-8">
+				<AnimatedContainer className="space-y-4">
+					<div className="flex items-center gap-0.5 justify-start">
+						<img
+							src="https://hifio5z61s.ufs.sh/f/UmL4PiAnirXaJkwbh1jbhemILCVWvs4gOpZcoQnMT1923lu0"
+							alt="ADYA AI"
+							title="ADYA AI"
+							className="h-20 w-auto"
+						/>
+						<p className="text-xl font-semibold text-black">ADYA AI</p>
+					</div>
+					<p className="text-muted-foreground mt-8 text-sm md:mt-0">
+						© {new Date().getFullYear()} ADYA AI. All rights reserved.
+					</p>
+				</AnimatedContainer>
+
+				<div className="mt-10 grid grid-cols-2 gap-8 md:grid-cols-2 xl:col-span-2 xl:mt-0">
+					{footerLinks.map((section, index) => (
+						<AnimatedContainer key={section.label} delay={0.1 + index * 0.1}>
+							<div className="mb-10 md:mb-0">
+								<h3 className="text-lg font-bold">{section.label}</h3>
+								<ul className="text-muted-foreground mt-4 space-y-2 text-sm">
+									{section.links.map((link) => (
+										<li key={link.title}>
+											<a
+												href={link.href}
+												className="hover:text-foreground inline-flex items-center transition-all duration-300"
+											>
+												{link.icon && <link.icon className="me-1 size-4" />}
+												{link.title}
+											</a>
+										</li>
+									))}
+								</ul>
+							</div>
+						</AnimatedContainer>
+					))}
+				</div>
+			</div>
+		</footer>
+	);
 };
+
+type ViewAnimationProps = {
+	delay?: number;
+	className?: ComponentProps<typeof motion.div>['className'];
+	children: ReactNode;
+};
+
+function AnimatedContainer({ className, delay = 0.1, children }: ViewAnimationProps) {
+	const shouldReduceMotion = useReducedMotion();
+
+	if (shouldReduceMotion) {
+		return <>{children}</>;
+	}
+
+	return (
+		<motion.div
+			initial={{ filter: 'blur(4px)', translateY: -8, opacity: 0 }}
+			whileInView={{ filter: 'blur(0px)', translateY: 0, opacity: 1 }}
+			viewport={{ once: true }}
+			transition={{ delay, duration: 0.8 }}
+			className={className}
+		>
+			{children}
+		</motion.div>
+	);
+}
