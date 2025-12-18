@@ -3,7 +3,6 @@ import ComparisonTable from "@/components/sections/comparison-table";
 import SolutionsGrid from "@/components/sections/solutions-grid";
 import DemoSection from "@/components/sections/demo-section";
 import BentoCardsSection from "@/components/sections/bento-cards";
-import TechStackSection from "@/components/sections/tech-stack";
 import TestimonialsCarousel from "@/components/sections/testimonials-carousel";
 import GettingStartedSection from "@/components/sections/getting-started";
 import FaqSection from "@/components/sections/faq";
