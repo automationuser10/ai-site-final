@@ -5,52 +5,112 @@ import { MovingBorder } from '@/components/ui/moving-border'
 type Stat = {
   value: string
   label: string
-  description: string
 }
 
-const stats: Stat[] = [
-  {
-    value: '10X',
-    label: 'Faster Operations',
-    description: 'Automate repetitive tasks and speed up your workflows'
-  },
-  {
-    value: '24/7',
-    label: 'Always Available',
-    description: 'AI systems that work around the clock without breaks'
-  },
-  {
-    value: '90%',
-    label: 'Cost Reduction',
-    description: 'Eliminate manual work and reduce operational costs'
-  }
+const MOBILE_STATS: Stat[] = [
+  { value: '30 Days', label: 'Partner Gurantee' },
+  { value: '< 48hr', label: 'System Diagnosis & Proposal' },
+  { value: '+100hrs', label: 'Saved for Businesses & Teams' },
+]
+
+const DESKTOP_STATS: Stat[] = [
+  { value: '30 Days', label: 'Partner Gurantee' },
+  { value: '< 48hr', label: 'System Diagnosis & Proposal' },
+  { value: '+100hrs', label: 'Saved for Businesses & Teams' },
 ]
 
 export default function StatsSection() {
   return (
-    <section className="w-full py-12 md:py-16 lg:py-20">
-      <div className="container px-4 md:px-6">
-        <div className="grid gap-6 md:grid-cols-3">
-          {stats.map((stat, index) => (
+    <>
+      {/* Mobile Version */}
+      <section className="md:hidden bg-white py-4">
+        <div className="mx-auto w-full max-w-md px-4 sm:px-6">
+          <div className="relative p-[2px] overflow-hidden rounded-2xl">
+            <MovingBorder duration={6000} rx="10%" ry="10%">
+              <div className="h-20 w-20 opacity-[0.8] bg-[radial-gradient(#ff9a00_40%,transparent_60%)]" />
+            </MovingBorder>
+            
             <Card
-              key={index}
-              className="relative overflow-hidden border-2 border-orange-200 bg-white/50 backdrop-blur-sm p-6 transition-all hover:shadow-lg hover:border-orange-300"
+              role="list"
+              aria-label="Key product stats"
+              className={[
+                // Always vertical stack
+                "flex flex-col",
+                // No gaps, dividers handle spacing
+                "gap-0",
+                "p-4 sm:p-6",
+                // Horizontal dividers between items
+                "divide-y",
+                "relative z-10",
+              ].join(' ')}
             >
-              <div className="space-y-2">
-                <h3 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-orange-600 to-orange-400">
-                  {stat.value}
-                </h3>
-                <p className="text-lg font-semibold text-black">
-                  {stat.label}
-                </p>
-                <p className="text-sm text-black/70">
-                  {stat.description}
-                </p>
-              </div>
+              {MOBILE_STATS.map((s, i) => (
+                <div
+                  key={i}
+                  role="listitem"
+                  className="flex flex-col items-center justify-center px-4 py-6 text-center"
+                >
+                  <div
+                    className={[
+                      "text-black font-semibold tracking-tight whitespace-nowrap",
+                      // Fluid font size
+                      "text-[clamp(2rem,6vw,3rem)] leading-none",
+                    ].join(' ')}
+                  >
+                    {s.value}
+                  </div>
+                  <p className="text-black mt-2 text-sm sm:text-base">
+                    {s.label}
+                  </p>
+                </div>
+              ))}
             </Card>
-          ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      {/* Desktop Version */}
+      <section className="hidden md:block bg-white py-6 md:py-8">
+        <div className="mx-auto w-full max-w-5xl px-4 sm:px-6">
+          <div className="relative p-[1px] overflow-hidden rounded-lg">
+            <div className="absolute inset-0" style={{ borderRadius: 'calc(0.5rem * 0.96)' }}>
+              <MovingBorder duration={6000} rx="5%" ry="5%">
+                <div className="h-40 w-60 opacity-[0.9] bg-[radial-gradient(#ff9a00_30%,transparent_40%)]" />
+              </MovingBorder>
+            </div>
+            <Card
+              role="list"
+              aria-label="Key product stats"
+              className={[
+                "relative grid grid-cols-3",
+                "gap-2 sm:gap-4 md:gap-6",
+                "p-3 sm:p-4 md:p-6",
+                "divide-x",
+              ].join(' ')}
+            >
+              {DESKTOP_STATS.map((s, i) => (
+                <div
+                  key={i}
+                  role="listitem"
+                  className="flex flex-col items-center justify-center px-1 sm:px-2 md:px-3 text-center"
+                >
+                  <div
+                    className={[
+                      "text-black font-semibold tracking-tight whitespace-nowrap",
+                      "text-xl sm:text-2xl md:text-[clamp(1.75rem,5vw,2.5rem)] leading-none",
+                    ].join(' ')}
+                  >
+                    {s.value}
+                  </div>
+                  <p className="text-black mt-2 text-xs sm:text-sm md:text-base">
+                    {s.label}
+                  </p>
+                </div>
+              ))}
+            </Card>
+          </div>
+        </div>
+      </section>
+    </>
   )
 }
