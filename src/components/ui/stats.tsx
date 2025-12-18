@@ -32,23 +32,22 @@ export default function StatsSection() {
       <div className="container px-4 md:px-6">
         <div className="grid gap-6 md:grid-cols-3">
           {stats.map((stat, index) => (
-            <div key={index} className="relative">
-              <MovingBorder duration={3000} rx="30%" ry="30%">
-                <Card className="relative overflow-hidden border-2 border-orange-200 bg-white/50 backdrop-blur-sm p-6 transition-all hover:shadow-lg">
-                  <div className="space-y-2">
-                    <h3 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-orange-600 to-orange-400">
-                      {stat.value}
-                    </h3>
-                    <p className="text-lg font-semibold text-black">
-                      {stat.label}
-                    </p>
-                    <p className="text-sm text-black/70">
-                      {stat.description}
-                    </p>
-                  </div>
-                </Card>
-              </MovingBorder>
-            </div>
+            <Card
+              key={index}
+              className="relative overflow-hidden border-2 border-orange-200 bg-white/50 backdrop-blur-sm p-6 transition-all hover:shadow-lg hover:border-orange-300"
+            >
+              <div className="space-y-2">
+                <h3 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-orange-600 to-orange-400">
+                  {stat.value}
+                </h3>
+                <p className="text-lg font-semibold text-black">
+                  {stat.label}
+                </p>
+                <p className="text-sm text-black/70">
+                  {stat.description}
+                </p>
+              </div>
+            </Card>
           ))}
         </div>
       </div>
