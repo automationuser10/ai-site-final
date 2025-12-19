@@ -5,6 +5,7 @@ import { Menu } from "lucide-react";
 import { motion, Variants } from "framer-motion";
 import * as React from "react";
 import Link from "next/link";
+import ContactForm from "@/components/sections/contact-form";
 
 function cn(...inputs: (string | undefined | null | boolean)[]) {
   return inputs.filter(Boolean).join(' ');
@@ -302,6 +303,9 @@ export default function ConsultationPage() {
             ></div>
           </div>
         </section>
+
+        {/* Contact Form Section */}
+        <ContactForm />
       </main>
       <Footer />
     </>
